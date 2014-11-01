@@ -1,0 +1,3 @@
+angular_integration_core:
+    resource: "@AngularIntegrationCoreBundle/Resources/config/routing.yml"
+    prefix:   /

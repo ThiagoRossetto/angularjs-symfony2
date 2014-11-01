@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8" />
+        <title>{% block title %}TCC{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        
+        {% block javascripts %}{% endblock %}
+
+        <div ng-app="AngularIntegrationApp">
+                {% block header %}{% endblock %}
+
+                {% block content %}{% endblock %}
+
+                {% block footer %}{% endblock %}
+        </div>
+
+    </body>
+</html>
