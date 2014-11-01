@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/test-infra
+END
+s3_cache.py
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/test-infra/s3_cache.py
+END
+uncached-npm-install.sh
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/test-infra/uncached-npm-install.sh
+END
+requirements.txt
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/test-infra/requirements.txt
+END
+sauce_browsers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/test-infra/sauce_browsers.yml
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/test-infra/README.md
+END
+npm-shrinkwrap.canonical.json
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/test-infra/npm-shrinkwrap.canonical.json
+END

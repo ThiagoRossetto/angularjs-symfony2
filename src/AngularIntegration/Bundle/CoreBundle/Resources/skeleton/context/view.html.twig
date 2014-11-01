@@ -1,0 +1,20 @@
+<button class="btn btn btn-primary" ui-sref="{{ context | lower }}.listar()">Listar</button>
+<button class="btn btn btn-primary" ui-sref="{{ context | lower }}.criar()">Criar</button>
+
+<div ng-switch on="currentState">
+    <div ng-switch-when="{{ context | lower }}.listar">
+        <div ng-include="'resource/{{ bundle_name }}?file=templates/{{ context | lower }}/{{ context | lower }}-list.html'"></div>
+    </div>
+    <div ng-switch-when="{{ context | lower }}.detalhe">
+        <div ng-include="'resource/{{ bundle_name }}?file=templates/{{ context | lower }}/{{ context | lower }}-detail.html'"></div>
+    </div>
+    <div ng-switch-when="{{ context | lower }}.criar">
+        <div ng-include="'resource/{{ bundle_name }}?file=templates/{{ context | lower }}/{{ context | lower }}-form.html'"></div>
+    </div>
+    <div ng-switch-when="{{ context | lower }}.editar">
+        <div ng-include="'resource/{{ bundle_name }}?file=templates/{{ context | lower }}/{{ context | lower }}-form.html'"></div>
+    </div>
+    <div ng-switch-default>
+        <div ng-include="'resource/{{ bundle_name }}?file=templates/{{ context | lower }}/{{ context | lower }}-list.html'"></div>
+    </div>
+</div>

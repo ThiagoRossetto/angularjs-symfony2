@@ -1,0 +1,32 @@
+/* NavBar */
+
+.navbar-inner:before, .navbar-inner:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.navbar-inner:after {
+    clear: both;
+}
+.navbar-inner:before, .navbar-inner:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.navbar-inner {
+    background-color: #E9E9E9;
+    background-image: linear-gradient(to bottom, #EEEEEE, #E1E1E1);
+    background-repeat: repeat-x;
+    border: 1px solid #C3C3C3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar-title {
+    display: inline;
+    font-weight: bold;
+    line-height: 42px;
+}

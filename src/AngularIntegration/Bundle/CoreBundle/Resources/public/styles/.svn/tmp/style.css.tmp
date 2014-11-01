@@ -1,0 +1,78 @@
+<<<<<<< .mine
+.banner-style { background: #FFF; border-bottom: 1px solid #d9d9d9; }
+#sidebar { padding-left: 0;  height: 100%; background: #f0f0f0; border-right: 1px solid #d9d9d9 }
+#sidebar li { border-bottom: 1px solid #d9d9d9; border-top: #d9d9d9 }
+#sidebar .active a { background: #fff; color: #000000; box-shadow: none; border-left: 6px solid #06963b }
+#sidebar.navbar-nav>li>a:hover { background: #fff; color: #000; border-left: 6px solid #06963b}
+#sidebar.side-nav{ top: 60px }
+.banner-style .title { margin: 18px 0 0 20px; float: left; }
+.banner-style .logo { margin: 12px; float: left}
+.header-options.navbar-nav>li>a{ cursor: default; color: #262626 }
+.header-options.navbar-nav>li>a:hover { background: #fff; color: #262626}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background: #fff; color: #262626 }
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus  { background: #f0f0f0; color: #999}
+.side-nav>li.dropdown>ul.dropdown-menu>li>a:hover, .side-nav>li.dropdown>ul.dropdown-menu>li>a.active, .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus { background: #fff; border-left: 6px solid #06963b; color: #262626 }
+/*.container { margin-left: inherit; width: 100%; }
+.navbar-header { width: 100%}
+.banner-style { background: #FFF; border-bottom: 1px solid #d9d9d9; height: 59px;}
+.banner-style .title { margin: 18px 0 0 20px; float: left; }
+.banner-style .logo { margin: 12px; float: left}
+@media screen and (max-width: 1024px){
+    .banner-style .logo { margin: 10px 0; float: left}
+    .banner-style .title { width: 170px; text-align: center; margin: 15px 0 0 0; font-size: 10px}
+}
+.banner-style .row.right{ float: right }
+
+/*Sidebar
+#sidebar { padding-left: 0;  height: 100%; background: #f0f0f0 }
+#sidebar .sidebar-offcanvas { border-radius: 0;}
+#sidebar .list-group { box-shadow: 0; box-shadow: none;}
+#sidebar a.list-group-item { background: #f0f0f0; border-radius: 0;}
+#sidebar a.list-group-item.active { background: #fff; border-left: 6px solid #06963b; border-right: 0; border-bottom: 1px solid #CFCFCF; border-top: 1px solid #CFCFCF; }
+
+
+*/=======
+label[required]:after {
+    content : " *";
+    font-weight : bold;
+    color : #FF4444;
+    font-size : 11px;
+    top : 2px;
+}
+
+/*#########################################################*/
+/* TOOLTIP-VALIDATION */
+
+.tooltip-validation {
+    background : #aa0606;
+    color : #fff;
+    position : absolute;
+    top : -1px;
+    right : 0;
+    font-size : 10px;
+    padding : 3px 5px;
+    border-radius : 3px;
+    font-weight : bold;
+}
+
+
+.tooltip-validation:after {
+    content : " ";
+    position : absolute;
+    bottom : -5px;
+    right : 15px;
+    width : 0px;
+    height : 0px;
+    border-style : solid;
+    border-width : 5px 4px 0 4px;
+    border-color : #aa0606 transparent transparent transparent;
+    z-index : 2;
+}
+
+.tooltip-validation.select-tooltip{
+    right : -5px !important;
+}
+
+input.ng-invalid, textarea.ng-invalid, select.ng-invalid {
+    border-color : #e9322d;
+}>>>>>>> .r120

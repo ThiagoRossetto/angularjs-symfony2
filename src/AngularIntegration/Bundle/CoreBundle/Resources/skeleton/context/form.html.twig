@@ -1,0 +1,16 @@
+<h1>Form {{ context }} </h1>
+<!--<h2>(currentState == UPDATE_STATE) ? "UPDATE" : "INSERT"</h2>-->
+
+<br /><br />
+
+<form name="" style="">
+    {% for field in fieldMappings %}
+        {% if field.fieldName != "id"  %}
+            <label>{{ field.fieldName }}: </label><input ng-model="currentEntity.{{ field.fieldName }}" type="text"><br />
+        {% endif %}
+    {% endfor %}
+
+    <button ng-if="currentState == UPDATE_STATE" ng-click="save('update')">Save</button>
+    <button ng-if="currentState == INSERT_STATE" ng-click="save('insert')">Save</button>
+
+</form>

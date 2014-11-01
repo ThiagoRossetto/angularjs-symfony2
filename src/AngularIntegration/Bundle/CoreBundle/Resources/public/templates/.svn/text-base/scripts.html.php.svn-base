@@ -1,0 +1,11 @@
+<!-- JQuery -->
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/jquery/jquery.js?v=${version}') ?>"></script>
+
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular/angular.js?v=${version}') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular/angular-locale_pt-br.js?v=${version}') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular-ui/ng-grid/ng-grid.js?v=${version}') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular-ui/ng-router/angular-ui-router.js?v=${version}') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular-ui/ui-bootstrap/ui-bootstrap.js?v=${version}') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular-ui/ui-utils/ui-utils.js?v=${version}') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular-ui/ui-date/date.js?v=${version}') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/operadorescore/lib/angular-carousel/carousel.js') ?>"></script>

@@ -1,0 +1,12 @@
+<h1>Form Exemplo </h1>
+<!--<h2>(currentState == UPDATE_STATE) ? "UPDATE" : "INSERT"</h2>-->
+
+<br /><br />
+
+<form name="" style="">
+                                    <label>name: </label><input ng-model="currentEntity.name" type="text"><br />
+            
+    <button ng-if="currentState == UPDATE_STATE" ng-click="save('update')">Save</button>
+    <button ng-if="currentState == INSERT_STATE" ng-click="save('insert')">Save</button>
+
+</form>

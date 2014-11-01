@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+    {% include 'AngularIntegrationCoreBundle:Default:header.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {% include 'AngularIntegrationCoreBundle:Default:styles.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        {% include content~'index.html.twig' %}
+    </div><!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascripts %}
+    {% include 'AngularIntegrationCoreBundle:Default:scripts.html.twig' %}
+    {% include content~'scripts.html.twig' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'AngularIntegrationCoreBundle:Default:footer.html.twig' %}
+{% endblock %}

@@ -1,0 +1,44 @@
+<?php
+
+namespace AngularIntegration\Bundle\{{ bundle_name_ecfirst }}Bundle\Service;
+
+use AngularIntegration\Bundle\{{ bundle_name_ecfirst }}Bundle\Entity\{{ context }};
+use AngularIntegration\Bundle\CoreBundle\Service\AbstractService;
+
+
+class {{ context }}Service extends AbstractService
+{
+
+    public function insert( {{ context }} $entity )
+    {
+        $insert = $this->getRepository( {{ context }}::$NAME )->insert( $entity );
+        $this->getManager()->flush();
+
+        return $insert;
+    }
+
+    public function update( {{ context }} $entity )
+    {
+        $update = $this->getRepository( {{ context }}::$NAME )->update( $entity );
+        $this->getManager()->flush();
+
+        return $update;
+    }
+
+    public function remove( {{ context }} $entity )
+    {
+        $this->getRepository( {{ context }}::$NAME )->remove( $entity->id );
+         $this->getManager()->flush();
+    }
+
+    public function findById( {{ context }} $entity )
+    {
+        $find = $this->getRepository( {{ context }}::$NAME )->findById( $entity->id );
+        return $find;
+    }
+
+    public function listByFilters( $filters )
+    {
+        return $this->getRepository( {{ context }}::$NAME )->listByFilters( null, null );
+    }
+}

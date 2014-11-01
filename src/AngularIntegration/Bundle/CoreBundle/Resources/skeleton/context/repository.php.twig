@@ -1,0 +1,44 @@
+<?php
+
+namespace AngularIntegration\Bundle\{{ bundle_name_ecfirst }}Bundle\Repository;
+
+use AngularIntegration\Bundle\CoreBundle\Repository\AbstractRepository;
+use AngularIntegration\Bundle\CoreBundle\Entity\Paging\PageRequest;
+use AngularIntegration\Bundle\CoreBundle\Entity\AbstractEntity;
+use AngularIntegration\Bundle\CoreBundle\Entity\Paging\Page;
+
+class {{ context }}Repository extends AbstractRepository
+{
+    /**
+     * Refatorar esta classe
+     */
+    /**
+     * @param array $filters
+     * @param PageRequest $pageRequest
+     * @return \AngularIntegration\Bundle\CoreBundle\Entity\Paging\Page | void
+     */
+    public function listByFilters( AbstractEntity $filters = null, PageRequest $pageRequest = null )
+    {
+        $statement = $this->getEntityManager()->createQueryBuilder();
+
+        $query = $statement
+            ->select( 'e' )
+            ->from('AngularIntegration\Bundle\{{ bundle_name_ecfirst }}Bundle\Entity\{{ context }}', 'e');
+
+        if ( $filters == null )
+        {
+
+        }
+
+        if ( $pageRequest == null )
+        {
+
+        } else{
+            //$pageRequest = (object) array("page" => (object) array("content" => $query->getQuery()->getArrayResult()));
+        }
+        $pageRequest = (object) array("page" => (object) array("content" => $query->getQuery()->getArrayResult()));
+
+        return $pageRequest;
+    }
+
+}

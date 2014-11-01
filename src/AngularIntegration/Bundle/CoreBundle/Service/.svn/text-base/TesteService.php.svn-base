@@ -1,0 +1,130 @@
+<?php
+
+namespace Operadores\Bundle\CoreBundle\Service;
+
+use Operadores\Bundle\CoreBundle\Entity\EntidadeTeste;
+
+
+class TesteService extends AbstractService
+{
+    /**
+     *
+     * Exemplo de requisi��o:
+     *
+        {
+            "serviceName": "TesteService",
+            "methodName": "insert",
+            "parameters": [
+                {
+                    "_explicitType": "EntidadeTeste",
+                    "descricao": "Uma Descricao",
+                    "ativo": true,
+                    "valor": 10.6,
+                    "criacao": {"_explicitType":"DateTime","date":"2014-05-14 19:32:51"}
+                }
+            ]
+        }
+     * @param EntidadeTeste $entidadeTeste
+     * @return EntidadeTeste
+     */
+    public function insert( EntidadeTeste $entidadeTeste )
+    {
+         var_dump($entidadeTeste);
+        exit;
+        $entidadeTeste->criacao = new \DateTime($entidadeTeste->criacao->toDate);
+        return $this->getRepository( EntidadeTeste::$NAME )->insert( $entidadeTeste );
+    }
+
+    /**
+     *
+     * Exemplo de requisi��o:
+     *
+        {
+            "serviceName": "TesteService",
+            "methodName": "update",
+            "parameters": [
+                {
+                    "_explicitType": "EntidadeTeste",
+                    "id": 10,
+                    "descricao": "Uma Descricao ALTERADA",
+                    "ativo": false,
+                    "valor": 10.6,
+                    "criacao": {"_explicitType":"DateTime","date":"2014-05-14 19:32:51"}
+                }
+            ]
+        }
+     * @param EntidadeTeste $entidadeTeste
+     * @return EntidadeTeste
+     */
+    public function update( EntidadeTeste $entidadeTeste )
+    {
+        return $this->getRepository( EntidadeTeste::$NAME )->update( $entidadeTeste );
+    }
+
+    /**
+     *
+     * Exemplo de requisi��o:
+     *
+        {
+            "serviceName": "TesteService",
+            "methodName": "remove",
+            "parameters": [
+                {
+                    "_explicitType": "EntidadeTeste",
+                    "id": 10
+                }
+            ]
+        }
+     * @param EntidadeTeste $entidadeTeste
+     */
+    public function remove( EntidadeTeste $entidadeTeste )
+    {
+        $this->getRepository( EntidadeTeste::$NAME )->remove( $entidadeTeste->id );
+    }
+
+    /**
+     *
+     * Exemplo de requisi��o:
+     *
+        {
+            "serviceName": "TesteService",
+            "methodName": "findById",
+            "parameters": [
+                {
+                    "_explicitType": "EntidadeTeste",
+                    "id": 1
+                }
+            ]
+        }
+     * @param EntidadeTeste $entidadeTeste
+     * @return EntidadeTeste
+     */
+    public function findById( EntidadeTeste $entidadeTeste )
+    {
+        return $this->getRepository( EntidadeTeste::$NAME )->findById( $entidadeTeste->id );
+    }
+
+    /**
+     *
+     * Exemplo de requisi��o:
+     *
+        {
+            "serviceName": "TesteService",
+            "methodName": "listByFilters",
+            "parameters": [
+                {
+                    "_explicitType": "EntidadeTeste",
+                    "descricao": "a"
+                }
+            ]
+        }
+     * @param $filters
+     * @return mixed
+     */
+    public function listByFilters( $filters )
+    {
+        $entity = new EntidadeTeste();
+        $entity->descricao = $filters;
+        return $this->getRepository( EntidadeTeste::$NAME )->listByFilters( null, null );
+    }
+}

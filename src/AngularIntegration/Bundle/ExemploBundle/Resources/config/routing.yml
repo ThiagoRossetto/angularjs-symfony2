@@ -1,0 +1,7 @@
+project_angularintegrationexemplo_homepage:
+    pattern:  /
+    defaults: { _controller: AngularIntegrationExemploBundle:App:index }
+
+project_angularintegrationexemplo_render:
+    pattern:  /render/{folder}/{html}
+    defaults: { _controller: AngularIntegrationExemploBundle:App:render }

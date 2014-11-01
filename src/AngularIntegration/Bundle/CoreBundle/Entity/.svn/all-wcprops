@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/itaipu-operadores/!svn/ver/460/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity
+END
+ArrayList.php
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/itaipu-operadores/!svn/ver/175/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/ArrayList.php
+END
+AbstractEntity.php
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/itaipu-operadores/!svn/ver/70/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/AbstractEntity.php
+END
+EntidadeTeste.php
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/itaipu-operadores/!svn/ver/70/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/EntidadeTeste.php
+END
+EnumType.php
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/itaipu-operadores/!svn/ver/197/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/EnumType.php
+END

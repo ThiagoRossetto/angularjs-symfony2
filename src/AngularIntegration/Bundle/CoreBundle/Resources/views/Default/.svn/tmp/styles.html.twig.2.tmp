@@ -1,0 +1,37 @@
+<!--
+    Styles
+-->
+<!-- Application -->
+<!--<link href="{{ asset('bundles/operadorescore/styles/sprites.css?v=${version}') }}" type="text/css" rel="stylesheet" />-->
+<link href="{{ asset('bundles/operadorescore/styles/normalize.css?v=${version}') }}" type="text/css" rel="stylesheet" />
+
+
+<!-- Boostrap -->
+<!--<link href="{{ asset('bundles/operadorescore/styles/bootstrap/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet"/>-->
+<link href="{{ asset('bundles/operadorescore/lib/bootstrap/dist/css/bootstrap-theme.min.css?v=${version}') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/operadorescore/styles/font-awesome/css/font-awesome.min.css?v=${version}') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/operadorescore/lib/bootstrap/dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet"/>
+<link href="{{ asset('bundles/operadorescore/lib/bootstrap/bootstrap-timepicker.css') }}" type="text/css" rel="stylesheet"/>
+<!-- Angular UI -->
+<link href="{{ asset('bundles/operadorescore/lib/ng-grid/ng-grid.css') }}" type="text/css" rel="stylesheet" />
+
+<!-- jQuery-UI -->
+<link href="{{ asset('bundles/operadorescore/lib/jqueryui/jquery-ui.min.css') }}" type="text/css" rel="stylesheet" />
+
+<!-- our Stylesheet -->
+<link href="{{ asset('bundles/operadorescore/styles/sb-admin.css?v=${version}') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/operadorescore/styles/style.css?v=${version}') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/operadorescore/lib/eits-directives/slick/jquery-slick/slick.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/operadorescore/lib/angular-chosen/chosen-spinner.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/operadorescore/lib/angular-chosen/chosen.css') }}" type="text/css" rel="stylesheet" />
+
+<!-- JQuery UI 
+<link href="{{ asset('bundles/operadorescore/lib/jquery-ui/jquery-ui-1.10.3.custom.css') }}" type="text/css" rel="stylesheet" />-->
+
+<!-- Timeout Dialog 
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/operadorescore/lib/timeout-dialog/css/timeout-dialog.css?v=${version}') }}" />-->
+
+<!-- Flags -->
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/operadorescore/styles/flags/flags.css?v=${version}') }}" />
+
+<link href="{{ asset('bundles/operadorescore/styles/style.css?v=${version}') }}" type="text/css" rel="stylesheet" />

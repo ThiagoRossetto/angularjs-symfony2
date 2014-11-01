@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/itaipu-operadores/!svn/ver/258/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/Paging
+END
+Page.php
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/itaipu-operadores/!svn/ver/147/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/Paging/Page.php
+END
+PageRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/itaipu-operadores/!svn/ver/258/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/Paging/PageRequest.php
+END
+Sort.php
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/itaipu-operadores/!svn/ver/147/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Entity/Paging/Sort.php
+END

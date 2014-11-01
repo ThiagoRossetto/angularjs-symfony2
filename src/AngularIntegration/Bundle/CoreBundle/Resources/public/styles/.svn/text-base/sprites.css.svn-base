@@ -1,0 +1,22 @@
+.logo-sisplaer, .logo-sisplaer-projeto, .logo-sisplaer-orcamento{
+	background: url(../images/sprites.png) no-repeat;
+}
+
+.logo-sisplaer{
+	background-position: 0 -3;
+	width: 371px;
+	height: 44px;
+}
+
+.logo-sisplaer-projeto{
+	background-position: 0 -52px ;
+	width: 371px;
+	height: 50px;
+}
+
+.logo-sisplaer-orcamento{
+	background-position: 0 -106px ;
+	width: 371px;
+	height: 50px;
+}
+

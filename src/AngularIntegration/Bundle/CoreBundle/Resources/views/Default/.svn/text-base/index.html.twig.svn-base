@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+    {% include 'OperadoresCoreBundle:Default:header.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {% include 'OperadoresCoreBundle:Default:styles.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        {% if app.user is not null and (is_granted('ROLE_GIBSIPSRTGER') or is_granted('ROLE_GIBSIPSRTADM') or is_granted('ROLE_GIBSIPSRTOPR'))%}
+        {% include content~'index.html.twig' %}
+        {% else %}
+            <div style="margin-left: auto;margin-right: auto;width: 100%;margin-top: 20px;text-align: center;"><b>{% trans %}Você não contém permissões para acessar o sistema{% endtrans %}</b></div>
+        {% endif %}
+    </div><!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascripts %}
+    {% include 'OperadoresCoreBundle:Default:scripts.html.twig' %}
+    {% if app.user is not null and (is_granted('ROLE_GIBSIPSRTGER') or is_granted('ROLE_GIBSIPSRTADM') or is_granted('ROLE_GIBSIPSRTOPR'))%}
+    {% include content~'scripts.html.twig' %}
+    {% include content~'index.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'OperadoresCoreBundle:Default:footer.html.twig' %}
+{% endblock %}

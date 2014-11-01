@@ -1,0 +1,29 @@
+operadores_core_broker:
+    pattern:  /app/broker
+    defaults: { _controller: OperadoresCoreBundle:Front:index }
+    requirements:
+       _method: POST
+
+project_app_render:
+    pattern:  /resource/{module}
+    defaults: { _controller: OperadoresCoreBundle:Resources:getResource }
+    requirements:
+       _method: GET
+
+project_app_user_me:
+    pattern:  /resource/user/me
+    defaults: { _controller: OperadoresCoreBundle:Resources:getUserMe }
+    requirements:
+       _method: GET
+
+project_app_download:
+   pattern:  /download/{file}
+   defaults: { _controller: OperadoresCoreBundle:Resources:downloadFile }
+   requirements:
+      _method: GET
+
+operadores_pages:
+    pattern:  /{module}
+    defaults: { _controller: OperadoresCoreBundle:Navigation:index, module: checklist}
+    requirements:
+       _method: GET

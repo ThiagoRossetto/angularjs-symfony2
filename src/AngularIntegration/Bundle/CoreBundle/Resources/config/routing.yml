@@ -1,0 +1,29 @@
+angular_integration_core_broker:
+    pattern:  /app/broker
+    defaults: { _controller: AngularIntegrationCoreBundle:Front:index }
+    requirements:
+       _method: POST
+
+project_app_render:
+    pattern:  /resource/{module}
+    defaults: { _controller: AngularIntegrationCoreBundle:Resources:getResource }
+    requirements:
+       _method: GET
+
+project_app_user_me:
+    pattern:  /resource/user/me
+    defaults: { _controller: AngularIntegrationCoreBundle:Resources:getUserMe }
+    requirements:
+       _method: GET
+
+project_app_download:
+   pattern:  /download/{file}
+   defaults: { _controller: AngularIntegrationCoreBundle:Resources:downloadFile }
+   requirements:
+      _method: GET
+
+angular_integration_pages:
+    pattern:  /{module}
+    defaults: { _controller: AngularIntegrationCoreBundle:Navigation:index, module: exemplo}
+    requirements:
+       _method: GET

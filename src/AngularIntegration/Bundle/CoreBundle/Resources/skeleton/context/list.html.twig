@@ -1,0 +1,14 @@
+this is the list {{ context }} file.<br /><br />
+
+<div resize-grid-columns="gridColumns"
+     resize-grid-columns-set="gridColumnsSet"></div>
+<div ng-grid="gridOptions" style="height: 335px; border: 1px solid rgb(212,212,212);"></div>
+<div class="gridFooterDiv">
+    <pagination style="text-align: center;"
+                total-items="currentPage.page.total" rotate="false"
+                items-per-page="currentPage.page.range"
+                total-items="currentPage.page.total" ng-change="changeToPage()"
+                ng-model="currentPage.page.page" boundary-links="true"
+                previous-text="‹" next-text="›" first-text="«" last-text="»">
+    </pagination>
+</div>

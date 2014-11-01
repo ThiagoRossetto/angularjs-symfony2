@@ -1,0 +1,118 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Gustavo
+ * Date: 25/06/14
+ * Time: 15:10
+ */
+
+namespace Operadores\Bundle\CoreBundle\Command;
+use Operadores\Bundle\AdminBundle\Entity\TipoEquipamento;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+
+class CreateTipoEquipamentoCommand extends ContainerAwareCommand{
+
+    protected function configure()
+    {
+        $this
+            ->setName('admin:create-tipo-equipamento')
+            ->setDescription('Create tipos de equipamento.');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $dbService = $this->getContainer()->get('doctrine.orm.entity_manager');
+
+        $tipoEquipamento = new TipoEquipamento();
+        $tipoEquipamento->id = 1;
+        $tipoEquipamento->nomeEspanhol = "SISTEMA DE CONTROL DE ACCESO";
+        $tipoEquipamento->nomePortugues = "SISTEMA DE CONTROLE DE ACESSO";
+
+        $tipoEquipamento2 = new TipoEquipamento();
+        $tipoEquipamento2->id = 2;
+        $tipoEquipamento2->nomeEspanhol = "SISTEMA DE AIRE CONDICIONADO";
+        $tipoEquipamento2->nomePortugues = "SISTEMA DE AR CONDICIONADO";
+
+        $tipoEquipamento3 = new TipoEquipamento();
+        $tipoEquipamento3->id = 3;
+        $tipoEquipamento3->nomeEspanhol = "SISTEMA CFTV";
+        $tipoEquipamento3->nomePortugues = "SISTEMA CFTV";
+
+        $tipoEquipamento4 = new TipoEquipamento();
+        $tipoEquipamento4->id = 4;
+        $tipoEquipamento4->nomeEspanhol = "SISTEMA DE DETECCAO, ALARME E COMBATE A INCENDIO";
+        $tipoEquipamento4->nomePortugues = "SISTEMA DE DETECCAO, ALARME E COMBATE A INCENDIO";
+
+        $tipoEquipamento5 = new TipoEquipamento();
+        $tipoEquipamento5->id = 5;
+        $tipoEquipamento5->nomeEspanhol = "UPS";
+        $tipoEquipamento5->nomePortugues = "UPS";
+
+        $tipoEquipamento6 = new TipoEquipamento();
+        $tipoEquipamento6->id = 6;
+        $tipoEquipamento6->nomeEspanhol = "GERADOR DIESEL";
+        $tipoEquipamento6->nomePortugues = "GERADOR DIESEL";
+
+        $tipoEquipamento7 = new TipoEquipamento();
+        $tipoEquipamento7->id = 7;
+        $tipoEquipamento7->nomeEspanhol = "UNIDADE DE CINTA LTO";
+        $tipoEquipamento7->nomePortugues = "UNIDADE DE FITA LTO";
+
+        $tipoEquipamento8 = new TipoEquipamento();
+        $tipoEquipamento8->id = 8;
+        $tipoEquipamento8->nomeEspanhol = "UNIDADE DE ARMAZENAMENTO (STORAGE)";
+        $tipoEquipamento8->nomePortugues = "UNIDADE DE ARMAZENAMENTO (STORAGE)";
+
+        $tipoEquipamento9 = new TipoEquipamento();
+        $tipoEquipamento9->id = 9;
+        $tipoEquipamento9->nomeEspanhol = "SWITCH SAN";
+        $tipoEquipamento9->nomePortugues = "SWITCH SAN";
+
+        $tipoEquipamento10 = new TipoEquipamento();
+        $tipoEquipamento10->id = 10;
+        $tipoEquipamento10->nomeEspanhol = "SWITCH LAN WAN";
+        $tipoEquipamento10->nomePortugues = "SWITCH LAN WAN";
+
+        $tipoEquipamento11 = new TipoEquipamento();
+        $tipoEquipamento11->id = 11;
+        $tipoEquipamento11->nomeEspanhol = "SERVIDORES INTEL";
+        $tipoEquipamento11->nomePortugues = "SERVIDORES INTEL";
+
+        $tipoEquipamento12 = new TipoEquipamento();
+        $tipoEquipamento12->id = 12;
+        $tipoEquipamento12->nomeEspanhol = "SERVIDORES RISC";
+        $tipoEquipamento12->nomePortugues = "SERVIDORES RISC";
+
+        $tipoEquipamento13 = new TipoEquipamento();
+        $tipoEquipamento13->id = 13;
+        $tipoEquipamento13->nomeEspanhol = "RACK COMUN";
+        $tipoEquipamento13->nomePortugues = "RACK COMUM";
+
+        $tipoEquipamento14 = new TipoEquipamento();
+        $tipoEquipamento14->id = 14;
+        $tipoEquipamento14->nomeEspanhol = "RACK CLIMATIZADO";
+        $tipoEquipamento14->nomePortugues = "RACK CLIMATIZADO";
+
+
+
+        $dbService->persist($tipoEquipamento);
+        $dbService->persist($tipoEquipamento2);
+        $dbService->persist($tipoEquipamento3);
+        $dbService->persist($tipoEquipamento4);
+        $dbService->persist($tipoEquipamento5);
+        $dbService->persist($tipoEquipamento6);
+        $dbService->persist($tipoEquipamento7);
+        $dbService->persist($tipoEquipamento8);
+        $dbService->persist($tipoEquipamento9);
+        $dbService->persist($tipoEquipamento10);
+        $dbService->persist($tipoEquipamento11);
+        $dbService->persist($tipoEquipamento12);
+        $dbService->persist($tipoEquipamento13);
+        $dbService->persist($tipoEquipamento14);
+        $dbService->flush();
+    }
+}

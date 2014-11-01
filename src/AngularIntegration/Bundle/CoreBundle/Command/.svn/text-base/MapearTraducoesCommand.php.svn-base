@@ -1,0 +1,138 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Gustavo
+ * Date: 25/06/14
+ * Time: 15:10
+ */
+
+namespace Operadores\Bundle\CoreBundle\Command;
+use Operadores\Bundle\AdminBundle\Entity\TipoEquipamento;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+
+class MapearTraducoesCommand extends ContainerAwareCommand{
+
+    protected function configure()
+    {
+        $this
+            ->setName('admin:mapear-traducoes')
+            ->setDescription('Mapeia todas as strings que devem ser traduzidas.');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $arquivosAdmin = $this->getArquivos('/home/thiago.chaves/operadores/Symfony/src/Operadores/Bundle/AdminBundle/');
+        $arquivosAuthentication = $this->getArquivos('/home/thiago.chaves/operadores/Symfony/src/Operadores/Bundle/AuthenticationBundle/');
+        $arquivosChecklist = $this->getArquivos('/home/thiago.chaves/operadores/Symfony/src/Operadores/Bundle/ChecklistBundle/');
+        $arquivosCore = $this->getArquivos('/home/thiago.chaves/operadores/Symfony/src/Operadores/Bundle/CoreBundle/');
+        $arquivosRepost = $this->getArquivos('/home/thiago.chaves/operadores/Symfony/src/Operadores/Bundle/ReportBundle/');
+
+        $arquivos = array();
+        $arquivos = array_merge($arquivos, $arquivosAdmin);
+        $arquivos = array_merge($arquivos, $arquivosAuthentication);
+        $arquivos = array_merge($arquivos, $arquivosChecklist);
+        $arquivos = array_merge($arquivos, $arquivosCore);
+        $arquivos = array_merge($arquivos, $arquivosRepost);
+
+        $t1 = '\\_\\[\\[';
+        $t2 = '\\]\\]';
+        $t3 = '\\]';
+
+        $pattern = '/([\\\'\"]?)'.$t1.'(([^'.$t3.']+'.$t3.'?[^'.$t3.']*)*)'.$t2.'([\\\'\"]?)/';
+        $data = array();
+        //var_dump($arquivos);
+        foreach($arquivos as $arquivo){
+            $fp = fopen( $arquivo , 'r');
+            while ( !feof ($fp)) {
+                $line = fgets($fp, 4096);
+                preg_match_all( $pattern , $line, $matches);
+                if(!empty($matches[0])){
+                    if(!in_array($matches[2][0], $data))
+                        $data[] = $matches[2][0];
+                }
+
+
+            }
+            fclose ($fp);
+        }
+        $traducoes = '';
+        foreach($data as $d){
+            $traducoes .= $d . "\n";
+        }
+        file_put_contents( '/tmp/traducao.txt' , var_export($traducoes ,true), FILE_APPEND );
+    }
+
+    private function getArquivos($dirname) {
+        $arquivos = array();
+        $dirname = $dirname . 'Resources/public/';
+        $dir = opendir( $dirname .'js/' );
+        while(($file = readdir($dir)) !== false) {
+            if( in_array($file, array('.', '..', '.svn', 'entity'))) continue;
+
+            if($file == 'modal') {
+                $modal = opendir( $dirname . 'js/modal');
+                while(($fileModal = readdir($modal)) !== false) {
+                    if( in_array($fileModal, array('.', '..', '.svn' , 'entity'))) continue;
+                    $arquivos[] = $dirname. 'js/modal/'.$fileModal;
+                }
+            } else if( $file == 'form' ) {
+                $form = opendir( $dirname . 'js/form' );
+                while(($fileForm = readdir($form)) !== false) {
+                    if( in_array($fileForm, array('.', '..', '.svn', 'entity'))) continue;
+                    $arquivos[] =  $dirname. 'js/form/'.$fileForm;
+                }
+            } else {
+                $arquivos[] = $dirname. 'js/' . $file;
+            }
+        }
+
+        $dir = @opendir( $dirname .'templates/' );
+        while(($file = readdir($dir)) !== false) {
+            if( in_array($file, array('.', '..', '.svn', 'entity'))) continue;
+
+            $dir2 = @opendir( $dirname . 'templates/' . $file);
+            if($dir2){
+                while(($filedir = readdir($dir2)) !== false) {
+                    if( in_array($filedir, array('.', '..', '.svn' , 'entity'))) continue;
+                    if($filedir == 'modal') {
+                        $modal = @opendir( $dirname . 'templates/modal'); if(!$modal) continue;
+                        while(($fileModal = readdir($modal)) !== false) {
+                            if( in_array($fileModal, array('.', '..', '.svn' , 'entity'))) continue;
+                            $arquivos[] = $dirname .'templates/modal/'.$fileModal;
+                        }
+                    } else if( $filedir == 'form' ) {
+                        $form = @opendir( $dirname . "templates/form"); if(!$form) continue;
+                        while(($fileForm = readdir($form)) !== false) {
+                            if( in_array($fileForm, array('.', '..', '.svn', 'entity'))) continue;
+                            $arquivos[] = $dirname .'templates/form/'.$fileForm;
+                        }
+                    } else {
+                        $arquivos[] = $dirname . 'templates/' . $file . '/' . $filedir;
+                    }
+                }
+            } else {
+                if($file == 'modal') {
+                    $modal = @opendir( $dirname . 'templates/modal');
+                    while(($fileModal = readdir($modal)) !== false) {
+                        if( in_array($fileModal, array('.', '..', '.svn' , 'entity'))) continue;
+                        $arquivos[] = $dirname .'templates/modal/'.$fileModal;
+                    }
+                } else if( $file == 'form' ) {
+                    $form = @opendir( $dirname . "templates/form");
+                    while(($fileForm = readdir($form)) !== false) {
+                        if( in_array($fileForm, array('.', '..', '.svn', 'entity'))) continue;
+                        $arquivos[] = $dirname .'templates/form/'.$fileForm;
+                    }
+                } else {
+                    $arquivos[] = $dirname .'templates/'  . $file;
+                }
+            }
+        }
+
+        return $arquivos;
+    }
+}

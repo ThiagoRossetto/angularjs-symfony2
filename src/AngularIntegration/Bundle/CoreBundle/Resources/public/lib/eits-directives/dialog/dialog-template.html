@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<div>
+	<div class="modal-header">
+		<h4 ng-bind-html="title"></h4>
+	</div>
+	<div class="modal-body" ng-bind-html="message"></div>
+	<div class="modal-footer">
+		<button ng-repeat="button in buttons" class="{{button.css}}" ng-click="clickHandler(button)">
+			{{button.label}}
+		</button>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $( "button" ).blur();
+    });
+</script>
+</html>

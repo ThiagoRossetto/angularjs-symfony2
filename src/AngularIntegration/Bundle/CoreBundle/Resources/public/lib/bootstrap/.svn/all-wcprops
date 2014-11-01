@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/itaipu-operadores/!svn/ver/397/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/LICENSE
+END
+bootstrap-timepicker.js
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/itaipu-operadores/!svn/ver/397/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/bootstrap-timepicker.js
+END
+package.json
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/package.json
+END
+.bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/.bower.json
+END
+bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/bower.json
+END
+Gruntfile.js
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/Gruntfile.js
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/itaipu-operadores/!svn/ver/93/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/README.md
+END
+bootstrap-timepicker.css
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/itaipu-operadores/!svn/ver/397/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/public/lib/bootstrap/bootstrap-timepicker.css
+END

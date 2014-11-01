@@ -1,0 +1,14 @@
+function {{ context }} () {
+    this._explicitType = "{{ context }}";
+
+    {% for field in fieldMappings %}
+    this.{{ field.fieldName }} = undefined;
+    {% endfor %}
+
+    /*
+        this.int = 123;
+        this.string = "";
+        this.boolean = false;
+        this.array = [];
+     */
+}

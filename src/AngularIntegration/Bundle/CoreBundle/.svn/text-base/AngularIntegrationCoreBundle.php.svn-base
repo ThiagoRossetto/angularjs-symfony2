@@ -1,0 +1,9 @@
+<?php
+
+namespace Operadores\Bundle\CoreBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class OperadoresCoreBundle extends Bundle
+{
+}

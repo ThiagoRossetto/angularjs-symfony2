@@ -1,0 +1,20 @@
+<?php
+namespace Operadores\Bundle\CoreBundle\Entity\Paging;
+
+/**
+ * Class Page
+ * @package Operadores\Bundle\CoreBundle\Entity\Paging
+ */
+class Sort
+{
+
+    /*
+     * Column to sort
+     * */
+    public $property;
+
+    /*
+     * ASC or DESC
+     * */
+    public $direction;
+}

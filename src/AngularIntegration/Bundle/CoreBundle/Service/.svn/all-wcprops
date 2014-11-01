@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/itaipu-operadores/!svn/ver/809/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Service
+END
+AbstractService.php~
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/itaipu-operadores/!svn/ver/72/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Service/AbstractService.php~
+END
+AbstractService.php
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/itaipu-operadores/!svn/ver/381/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Service/AbstractService.php
+END
+TesteService.php
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/itaipu-operadores/!svn/ver/470/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Service/TesteService.php
+END
+RenderModuleService.php
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/itaipu-operadores/!svn/ver/809/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Service/RenderModuleService.php
+END
+FileDuck.php
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/itaipu-operadores/!svn/ver/751/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Service/FileDuck.php
+END
+UploadImage.php
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/itaipu-operadores/!svn/ver/638/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Service/UploadImage.php
+END

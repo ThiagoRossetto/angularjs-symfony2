@@ -1,0 +1,35 @@
+10
+
+dir
+0
+http://scm.eits.com.br/svn/itaipu-operadores/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/Resources/skeleton
+http://scm.eits.com.br/svn/itaipu-operadores
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+85568260-4501-0010-8aff-457a7150db34
+
+bundle
+dir
+
+
+
+add
+

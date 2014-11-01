@@ -1,0 +1,7 @@
+parameters:
+#    angular_integration_exemplo.example.class: AngularIntegration\Bundle\ExemploBundle\Example
+
+services:
+#    angular_integration_exemplo.example:
+#        class: %angular_integration_exemplo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

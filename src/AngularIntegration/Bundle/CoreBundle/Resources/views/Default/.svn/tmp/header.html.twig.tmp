@@ -1,0 +1,130 @@
+<div id="wrapper">
+    <script type="application/javascript">
+        var browser = '{{ parameters['browser'] }}';
+        var lang = '{{ parameters['lang'] }}';
+    </script>
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top header-style" role="navigation">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle button-collapse" data-toggle="collapse" data-target=".navbar-ex1-collapse" style="background: #464646; float: left; margin: 12px 10px">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="logo" src="bundles/operadorescore/images/logo.jpg" >
+            <img class="logo-mobile" src="bundles/operadorescore/images/logo-mobile.png" >
+            <div class="title hidden-sm">
+                <b>SRT </b>- {% trans %}SISTEMA DE REGISTRO DE TURNO DA SIPP.GG{% endtrans %}
+            </div>
+
+            <li class="dropdown alerts-dropdown icon-notification-mobile">
+            <a href="javascript();" data-toggle="dropdown"><img src="bundles/operadorescore/images/icon-notification.png" style="margin: 0 5px 0 0;"> </i> <!--<span class="badge">3</span>--> </a>
+            <ul class="dropdown-menu" style="position: absolute; left: inherit; margin: 15px 0px 0 0;right: 0px; text-align: center">
+                <b>Notificações</b>
+                <li>
+                    <a href="#" style="text-align: left; margin: 10px; border: 1px solid #d9d9d9; padding: 3px;">
+                        <i onclick="alert(1)" style="float: right;margin: 3px;" class="fa fa-times"></i>
+                        <span style="display: block; font-weight: bold;">Atividade 01</span>
+                        <span>alguma descricao maluca...</span>
+                    </a>
+                    <a href="#" style="text-align: left; margin: 10px; border: 1px solid #d9d9d9; padding: 3px;">
+                        <i onclick="alert(1)" style="float: right;margin: 3px;" class="fa fa-times"></i>
+                        <span style="display: block; font-weight: bold;">Atividade 01</span>
+                        <span>alguma descricao maluca...</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <a href="#">Ver notificações anteriores</a>
+            </ul>
+            </li>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+            <ul class="nav navbar-nav side-nav" id="sidebar">
+                <li id="module-admin" class="active"><a href="#">{% trans %}Principal{% endtrans %}</a></li>
+                <li id="module-cadastros" class="dropdown">
+                    <a href="#" class="dropdown-toggle">{% trans %}Cadastros{% endtrans %}<b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="display: none;">
+                        <li id="module-atividade"><a href="admin#/atividade">{% trans %}Atividade{% endtrans %}</a></li>
+                        <li id="module-bloco"><a href="admin#/bloco">{% trans %}Blocos{% endtrans %}</a></li>
+                        <li id="module-campodinamico"><a href="admin#/campodinamico">{% trans %}Campos Dinâmicos{% endtrans %}</a></li>
+                        <li id="module-datacenter"><a href="admin#/datacenter">{% trans %}Data center{% endtrans %}</a></li>
+                        <li id="module-equipamento"><a href="admin#/equipamento">{% trans %}Equipamentos{% endtrans %}</a></li>
+                        <li id="module-template"><a href="admin#/templates">{% trans %}Templates{% endtrans %}</a></li>
+                        <li id="module-escaladeturno"><a href="admin#/escalaturno">{% trans %}Escala de Turnos{% endtrans %}</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros <b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Dropdown Item</a></li>
+                         <li><a href="#">Another Item</a></li>
+                         <li><a href="#">Third Item</a></li>
+                         <li><a href="#">Last Item</a></li>
+                     </ul>
+                 </li>-->
+                 <li id="module-relatorios" class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {% trans %}Relatórios{% endtrans %} <b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                         <li id="module-equipamento-ativo-inativo"><a href="report#/equipamento">{% trans %}Equipamento ativos/inativos{% endtrans %}</a></li>
+                         <li id="module-registro-turno"><a href="report#/registroturno">{% trans %}Registro de turno{% endtrans %}</a></li>
+                         <li id="module-indice-ocorrencia-chamados"><a href="report#/ocorrenciachamados">{% trans %}Índice de ocorrência de chamados{% endtrans %}</a></li>
+                     </ul>
+                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-user header-options">
+                <li class="dropdown user-dropdown separator">
+                    <a>{{ parameters['givenname'] }}</a>
+                </li>
+                <li class="dropdown alerts-dropdown icon-notification separator">
+                    <a href="javascript();" data-toggle="dropdown"> <img src="bundles/operadorescore/images/icon-notification.png"> </i> <!--<span class="badge">3</span>--> </a>
+                    <ul class="dropdown-menu" style="text-align: center;">
+                        <b>Notificações</b>
+                        <li>
+                            <a href="#" style="text-align: left; margin: 10px; border: 1px solid #d9d9d9; padding: 3px;">
+                                <i onclick="alert(1)" style="float: right;margin: 3px;" class="fa fa-times"></i>
+                                <span style="display: block; font-weight: bold;">Atividade 01</span>
+                                <span>alguma descricao maluca...</span>
+                            </a>
+                            <a href="#" style="text-align: left; margin: 10px; border: 1px solid #d9d9d9; padding: 3px;">
+                                <i onclick="alert(1)" style="float: right;margin: 3px;" class="fa fa-times"></i>
+                                <span style="display: block; font-weight: bold;">Atividade 01</span>
+                                <span>alguma descricao maluca...</span>
+                            </a>
+                        </li>
+                        <!--<li><a href="#">Default <span class="label label-default">Default</span></a></li>
+                        <li><a href="#">Primary <span class="label label-primary">Primary</span></a></li>
+                        <li><a href="#">Success <span class="label label-success">Success</span></a></li>
+                        <li><a href="#">Info <span class="label label-info">Info</span></a></li>
+                        <li><a href="#">Warning <span class="label label-warning">Warning</span></a></li>
+                        <li><a href="#">Danger <span class="label label-danger">Danger</span></a></li>-->
+                        <li class="divider"></li>
+                        <!--<li><a href="#">View All</a></li>-->
+                        <a href="#">Ver notificações anteriores</a>
+                    </ul>
+                </li>
+
+                <li class="dropdown icon-config">
+                    <a href="javascript();" class="" data-toggle="dropdown"> <img src="bundles/operadorescore/images/icon-config.png"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="system/logout">{% trans %}Sair{% endtrans %}</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown settings">
+                    <a href="javascript();" class="dropdown-toggle" data-toggle="dropdown">{% trans %}Configurações{% endtrans %} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="system/logout">{% trans %}Sair{% endtrans %}</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+
+        </div><!-- /.navbar-collapse -->
+    </nav>

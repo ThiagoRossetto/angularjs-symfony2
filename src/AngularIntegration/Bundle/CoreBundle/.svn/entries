@@ -1,0 +1,121 @@
+10
+
+dir
+863
+http://scm.eits.com.br/svn/itaipu-operadores/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle
+http://scm.eits.com.br/svn/itaipu-operadores
+
+
+
+2014-08-05T17:44:29.018000Z
+858
+thiago.rossetto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+85568260-4501-0010-8aff-457a7150db34
+
+AngularIntegrationCoreBundle.php
+file
+
+
+
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+copied
+http://scm.eits.com.br/svn/itaipu-operadores/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/src/Operadores/Bundle/CoreBundle/OperadoresCoreBundle.php
+863
+
+Command
+dir
+
+Controller
+dir
+
+DataFixtures
+dir
+
+DependencyInjection
+dir
+
+Entity
+dir
+
+Interfaces
+dir
+
+Libs
+dir
+
+OperadoresCoreBundle.php
+file
+
+
+
+delete
+2014-05-19T13:11:46.696001Z
+4bb68551e0afd968a1fdb042084d0421
+2014-05-14T20:37:46.992000Z
+49
+thiago.rossetto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+143
+
+Pdf
+dir
+
+Repository
+dir
+
+Resources
+dir
+
+Service
+dir
+
+Tests
+dir
+

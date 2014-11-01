@@ -1,0 +1,101 @@
+<?php
+namespace Operadores\Bundle\CoreBundle\Service;
+
+use Doctrine\ORM\EntityManager;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+abstract class AbstractService extends Controller
+{
+    public $container;
+
+    public function __construct($container = null)
+    {
+        if($container == null) {
+            global $kernel;
+            $this->container = $kernel->getContainer();
+        } else {
+            $this->container = $container;
+        }
+    }
+
+    /**
+     * Shortcut to return the Doctrine Registry service.
+     *
+     * @return Registry
+     *
+     * @throws \LogicException If DoctrineBundle is not available
+     */
+    public function getRepository( $entityName )
+    {
+        if (!$this->container->has('doctrine')) {
+            throw new \LogicException('The DoctrineBundle is not registered in your application.');
+        }
+
+        return $this->container->get('doctrine')->getManager()->getRepository( $entityName );
+    }
+
+    /**
+     * @param $entityName
+     * @return EntityManager
+     * @throws \LogicException
+     */
+    public function getManager( )
+    {
+        if (!$this->container->has('doctrine')) {
+            throw new \LogicException('The DoctrineBundle is not registered in your application.');
+        }
+
+        return $this->container->get('doctrine')->getManager();
+    }
+
+    /**
+     * Get a user from the Security Context
+     *
+     * @return mixed
+     *
+     * @throws \LogicException If SecurityBundle is not available
+     *
+     * @see Symfony\Component\Security\Core\Authentication\Token\TokenInterface::getUser()
+     */
+    public function getUser()
+    {
+        if (!$this->container->has('security.context')) {
+            throw new \LogicException('The SecurityBundle is not registered in your application.');
+        }
+
+        if (null === $token = $this->container->get('security.context')->getToken()) {
+            return;
+        }
+
+        if (!is_object($user = $token->getUser())) {
+            return;
+        }
+
+        return $user;
+    }
+
+    /**
+     * Returns true if the service id is defined.
+     *
+     * @param string $id The service id
+     *
+     * @return bool    true if the service id is defined, false otherwise
+     */
+    public function has($id)
+    {
+        return $this->container->has($id);
+    }
+
+    /**
+     * Gets a service by id.
+     *
+     * @param string $id The service id
+     *
+     * @return object The service
+     */
+    public function get($id)
+    {
+        return $this->container->get($id);
+    }
+}
+

@@ -1,0 +1,282 @@
+'use strict';
+
+/**
+ *
+ * @param $scope
+ * @param $log
+ * @param $state
+ * @param $timeout
+ * @param $dialog
+ */
+function AbstractController( $scope, $log, languages, $filter, $modal ) {
+
+    $scope.currentLang;
+
+
+
+    /*-------------------------------------------------------------------
+     * 		 				 	ATTRIBUTES
+     *-------------------------------------------------------------------*/
+    $scope.browser = browser;
+    $scope.INVALID_FORM_MESSAGE = "_[[Os campos em destaque são de preenchimento obrigatório.]]";
+    $scope.INVALID_ID_MESSAGE = "_[[Não foi possível abrir o detalhe do registro. O identificador é inválido.]]";
+    $scope.SERVER_ERROR = "_[[Ocorreu um problema. Por favor contate seu administrador.]]";
+
+
+    $scope.API = API;
+    /*-------------------------------------------------------------------
+     * 		 				 	EVENT HANDLERS
+     *-------------------------------------------------------------------*/
+    /**
+     * Handler que escuta as mudan�as de URLs pertecentes ao estado da tela.
+     * Ex.: litar, criar, detalhe, editar
+     *
+     * Toda vez que ocorre uma mudan�a de URL se via bot�o, troca de URL manual, ou ainda
+     * ao van�ar e voltar do browser, este evento � chamado e chama o initilize() que faz o papel de front-controller.
+     *
+     */
+    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+        $log.info("$stateChangeSuccess");
+
+        $scope.initialize(toState, toParams, fromState, fromParams);
+
+        if (toState.url != '/detalhe/:id' && toState.url != "/listar") {
+            $scope.msg = null;
+        }else if( $scope.msg != null && toState.url == "/listar" && $scope.msg.type == 'danger'){
+            $scope.msg = null;
+        };
+
+        if ((toState.url == '/detalheData/:id' || toState.url == "/detalhePop/:id") && fromState.name != "") {
+            $scope.oldState = fromState;
+            $scope.oldParams = fromParams;
+        }else{
+            $scope.oldState = '/atividade/detalhe/'+fromParams.id;
+            $scope.oldParams = fromParams;
+        }
+    });
+
+    /**
+     * Função para fechar o alert depois de 10 segundos.
+     */
+    $scope.$watch('msg', function(){
+        if($scope.msg != null)
+            setTimeout(function(){
+                $('.alert .close').trigger('click');
+            }, 10000);
+    });
+
+    /**
+     * Retorna a instancia do form no escopo do angular.
+     * @param formName
+     * @returns {*|Function|$scope.form|$scope.form|$scope.form|jQuery}
+     */
+    $scope.form = function( formName ) {
+        return $("form[name="+(formName ? formName: 'form')+"]").scope()[(formName ? formName: 'form')];
+    };
+
+    /**
+     */
+    $scope.close = function() {
+        $scope.msg = null;
+    };
+
+    /**
+     *
+     */
+    $scope.getTemplateFlags = function(field){
+        if(field == undefined)
+            field = 'valido';
+
+        return '<div class="col-xs-6" style="padding-top: 4px;"><div style="float: right; margin-right: 6px; margin-left: 0" ng-if="row.entity.'+ field +'Espanhol" align="center" class=\'icon-py\'></div><div style="float: right; margin-right: 6px; margin-left: 2px" ng-if="row.entity.'+ field +'Portugues" align="center" class=\'icon-br\'></div></div>';
+
+    };
+
+    /*
+     *
+     *
+     *
+     */
+     $scope.verifyBrowser = function ( functionBR, functionES ){
+
+        var language;
+
+        if(arguments.length == 2){
+            language = lang;
+        }else{
+            language = arguments[2];
+        }
+        switch (language) {
+            case languages.pt_BR:{
+                functionBR();
+            }
+            break;
+            case languages.es_ES: {
+                functionES();
+            }
+            break;
+            case languages.es: {
+                functionES();
+            }
+            break;
+            default : {
+                functionBR();
+            }
+        }
+     }
+
+    $scope.verifyBrowser(function(){
+        $scope.currentLang = ".br";
+    },function(){
+        $scope.currentLang = ".es";
+    });
+
+    $scope.alerts = [];
+    var alert = {
+        msg: 'Please fill all the fields.'
+    };
+    alert.close = function(){
+        $scope.alerts.splice($scope.alerts.indexOf(this), 1);
+    }
+        $scope.alerts.push(alert);
+        setTimeout(function(){
+        $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+    }, 3000);
+
+
+    /**
+     * Função para ordenar vetor da ng-grid, tanto no idioma português quanto do espanhol.
+     */
+
+    $scope.ordenar = function(colunaBR, colunaES, vetor, currentLang, direction){
+        var vetorOrdenado = angular.copy(vetor);
+        vetor.splice(0, vetor.length);
+        var swapped;
+        do {
+            if(typeof colunaBR == "object"){
+                swapped = false;
+                for (var i=0; i < vetorOrdenado.length-1; i++) {
+                    var coluna1 = currentLang == '.br' ? (vetorOrdenado[i][colunaBR[0]][colunaBR[1]] != '' ? colunaBR : colunaES) : (vetorOrdenado[i][colunaES[0]][colunaES[1]] != '' ? colunaES : colunaBR);
+                    var coluna2 = currentLang == '.br' ? (vetorOrdenado[i + 1][colunaBR[0]][colunaBR[1]] != '' ? colunaBR : colunaES) : (vetorOrdenado[i + 1][colunaES[0]][colunaES[1]] != '' ? colunaES : colunaBR);
+                    var exp;
+                    if(direction == 'asc')
+                        exp = $.trim(vetorOrdenado[i][coluna1[0]][coluna1[1]].toLowerCase()) > $.trim(vetorOrdenado[i+1][coluna2[0]][coluna2[1]].toLowerCase());
+                    else
+                        exp = $.trim(vetorOrdenado[i][coluna1[0]][coluna1[1]].toLowerCase()) < $.trim(vetorOrdenado[i+1][coluna2[0]][coluna2[1]].toLowerCase());
+
+                    if (exp) {
+                        var temp = vetorOrdenado[i];
+                        vetorOrdenado[i] = vetorOrdenado[i+1];
+                        vetorOrdenado[i+1] = temp;
+                        swapped = true;
+                    }
+                }
+            } else {
+                swapped = false;
+                for (var i=0; i < vetorOrdenado.length-1; i++) {
+                    var coluna1 = currentLang == '.br' ? (vetorOrdenado[i][colunaBR] != '' ? colunaBR : colunaES) : (vetorOrdenado[i][colunaES] != '' ? colunaES : colunaBR);
+                    var coluna2 = currentLang == '.br' ? (vetorOrdenado[i + 1][colunaBR] != '' ? colunaBR : colunaES) : (vetorOrdenado[i + 1][colunaES] != '' ? colunaES : colunaBR);
+                    var exp;
+                    if(typeof vetorOrdenado[i][coluna1] == "string" && typeof vetorOrdenado[i+1][coluna2] == "string"){
+                        if(direction == 'asc')
+                            exp = $.trim(vetorOrdenado[i][coluna1].toLowerCase()) > $.trim(vetorOrdenado[i+1][coluna2].toLowerCase());
+                        else
+                            exp = $.trim(vetorOrdenado[i][coluna1].toLowerCase()) < $.trim(vetorOrdenado[i+1][coluna2].toLowerCase());
+                    }else{
+                        if(direction == 'asc')
+                            exp = vetorOrdenado[i][coluna1] > vetorOrdenado[i+1][coluna2];
+                        else
+                            exp = vetorOrdenado[i][coluna1] < vetorOrdenado[i+1][coluna2];
+                    }
+
+                    if (exp) {
+                        var temp = vetorOrdenado[i];
+                        vetorOrdenado[i] = vetorOrdenado[i+1];
+                        vetorOrdenado[i+1] = temp;
+                        swapped = true;
+                    }
+                }
+            }
+
+        } while (swapped);
+
+        return angular.copy(vetorOrdenado);
+    }
+
+    $scope.formatHour = function(hora) {
+        return (new Date(hora).getHours() < 10 ? '0' : '') + new Date(hora).getHours() + ":" + (new Date(hora).getMinutes() < 10 ? '0' : '') + new Date(hora).getMinutes();
+    }
+
+    $scope.formatDate = function(data) {
+        return $filter('date')(new Date(data), 'dd/MM/yyyy');
+    }
+
+    $scope.modalDetalhesDataCenter = function(id){
+        var datacenter = new DataCenter();
+        datacenter.id = id;
+
+        if(!$scope.oldState){
+            $state.go('datacenter.detalhe', {id:id});
+            return;
+        }
+
+        $scope.ServiceFactory.call("DataCenterService", "findById", datacenter, function(data){
+                var modal = $modal.open({
+                    templateUrl: 'resource/admin?file=templates/atividade/modal/datacenter-detail.html',
+                    controller: ModalDetalheDataCenterCtrl,
+                    size: 700,
+                    resolve: {
+                        datacenter: function(){
+                            return data;
+                        },
+                        lang: function(){
+                            return $scope.currentLang;
+                        }
+                    }
+                });
+
+                modal.result.then(function (  ) {
+                }, function () {
+                    if(($scope.currentState != $scope.INSERT_STATE) && ($scope.currentState != $scope.INSERT_STATE_BR) && ($scope.currentState != $scope.INSERT_STATE_ES)){
+                        $state.go($scope.oldState.name, {id:$scope.oldParams.id});
+                    }
+                });
+            },
+            function(data){
+                console.log(data);
+            }
+        );
+    };
+
+    $scope.modalDetalhesEquipamento = function(id){
+        var equipamento = new Equipamento();
+        equipamento.id = id;
+        if(!$scope.oldState){
+            $state.go('equipamento.detalhe', {id:id});
+            return;
+        }
+        $scope.ServiceFactory.call("EquipamentoService", "findById", equipamento, function(data){
+                var modal = $modal.open({
+                    templateUrl: 'resource/admin?file=templates/atividade/modal/equipamentos-detail.html',
+                    controller: ModalDetalheEquipamentoCtrl,
+                    size: 500,
+                    resolve: {
+                        equipamento: function(){
+                            return data;
+                        }
+                    }
+                })
+
+                modal.result.then(function (  ) {
+                }, function () {
+                    if(($scope.currentState != $scope.INSERT_STATE) && ($scope.currentState != $scope.INSERT_STATE_BR) && ($scope.currentState != $scope.INSERT_STATE_ES)){
+                        $state.go($scope.oldState.name, {id:$scope.oldParams.id});
+                    }
+                });
+            },
+            function(data){
+                console.log(data);
+            }
+        );
+    };
+
+}

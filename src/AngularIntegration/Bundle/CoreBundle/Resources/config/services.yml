@@ -1,0 +1,25 @@
+parameters:
+#    _core.example.class: \CoreBundle\Example
+
+services:
+    FileDuck:
+        class:  AngularIntegration\Bundle\CoreBundle\Service\FileDuck
+        arguments:
+            config:
+                cacheModel: ETag # NONE | ETag | LastModified | Expires | MaxAge
+                cacheExpireTime: 43200 # 43200 Minutos = 30 Dias
+                cacheMaxAgeTime: 2880  # 1440 Minutos = 1 Dia
+                cacheFolder: '/home/thiago/fileduck'
+                debugFile : '/home/thiago/fileduck/debug.log'
+                debug : true
+                lang : pt_BR
+                tokens : [ '_[[' , ']]' , '$' ] # start , end , variable
+                wrapVarTokens : [ '+' , '+' ] #start , end;  Used to wrap variables
+                YUICompressor : false
+                requireQuotes : false #translations need to be inside quotes
+                environment : prod #dev | prod
+            container: '@service_container'
+
+    render_module:
+        class:     "AngularIntegration\Bundle\CoreBundle\Service\RenderModuleService"
+        arguments: ['@service_container']
