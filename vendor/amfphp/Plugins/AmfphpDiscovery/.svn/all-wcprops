@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Plugins/AmfphpDiscovery
+END
+MethodDescriptor.php
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Plugins/AmfphpDiscovery/MethodDescriptor.php
+END
+ParameterDescriptor.php
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Plugins/AmfphpDiscovery/ParameterDescriptor.php
+END
+ServiceDescriptor.php
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Plugins/AmfphpDiscovery/ServiceDescriptor.php
+END
+AmfphpDiscovery.php
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Plugins/AmfphpDiscovery/AmfphpDiscovery.php
+END
+AmfphpDiscoveryService.php
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Plugins/AmfphpDiscovery/AmfphpDiscoveryService.php
+END

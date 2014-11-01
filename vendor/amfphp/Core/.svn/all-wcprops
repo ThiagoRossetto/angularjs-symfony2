@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/itaipu-operadores/!svn/ver/374/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core
+END
+PluginManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/PluginManager.php
+END
+Exception.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Exception.php
+END
+FilterManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/itaipu-operadores/!svn/ver/374/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/FilterManager.php
+END
+Gateway.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/itaipu-operadores/!svn/ver/69/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Gateway.php
+END
+HttpRequestGatewayFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/HttpRequestGatewayFactory.php
+END
+Config.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Config.php
+END

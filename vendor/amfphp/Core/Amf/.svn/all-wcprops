@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/itaipu-operadores/!svn/ver/374/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf
+END
+Serializer.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Serializer.php
+END
+Constants.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Constants.php
+END
+Handler.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Handler.php
+END
+Util.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/itaipu-operadores/!svn/ver/374/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Util.php
+END
+Deserializer.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Deserializer.php
+END
+Message.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Message.php
+END
+Packet.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Packet.php
+END
+Header.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/itaipu-operadores/!svn/ver/51/trunk/4-Implementacao/4.2-Codigo_Fonte/Symfony/vendor/Amfphp/Core/Amf/Header.php
+END
