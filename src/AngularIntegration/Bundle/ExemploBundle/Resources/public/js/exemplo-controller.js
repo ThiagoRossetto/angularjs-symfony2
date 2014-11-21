@@ -50,6 +50,12 @@ function ExemploController( $scope, $injector, $log, $state, ServiceFactory ) {
     $scope.UPDATE_STATE = "exemplo.editar";
 
     /**
+     * Variável estática que representa
+     * o estado para a guia
+     */
+    $scope.GUIA_STATE = "exemplo.guia";
+
+    /**
      * Variável que armazena o estado corrente da tela.
      * Esta variável deve SEMPRE estar de acordo com a URL
      * que estão no browser.
@@ -136,6 +142,10 @@ function ExemploController( $scope, $injector, $log, $state, ServiceFactory ) {
                 $scope.changeToUpdate( $state.params.id );
             }
                 break;
+            case $scope.GUIA_STATE: {
+                $scope.changeToGuia();
+            }
+                break;
             default : {
                 $state.go( $scope.LIST_STATE );
             }
@@ -203,15 +213,6 @@ function ExemploController( $scope, $injector, $log, $state, ServiceFactory ) {
             });
     };
 
-
-    /**
-     * Realiza os procedimentos iniciais (prepara o estado)
-     * para a tela de exclusão.
-     *
-     * Antes de excluir, o usuário notificado para confirmação
-     * e só então o registro é excluido.
-     * Após exclusão, atualizamos a grid com estado de filtro, paginação e sorting.
-     */
     $scope.changeToRemove = function( id ) {
         $log.info("changeToRemove", id);
 
@@ -225,6 +226,14 @@ function ExemploController( $scope, $injector, $log, $state, ServiceFactory ) {
             function(data){
                 console.log(data);
             });
+    };
+
+    $scope.changeToGuia = function() {
+
+        $log.info("changeToGuia");
+
+        $scope.currentState = $scope.GUIA_STATE;
+
     };
 
 
@@ -241,6 +250,8 @@ function ExemploController( $scope, $injector, $log, $state, ServiceFactory ) {
                 alert("ops... deu algum erro!")
             });
     }
+
+
 
 
 };

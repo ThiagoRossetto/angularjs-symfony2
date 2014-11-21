@@ -1,5 +1,7 @@
-<button class="btn btn btn-primary" ui-sref="exemplo.listar()">Listar</button>
-<button class="btn btn btn-primary" ui-sref="exemplo.criar()">Criar</button>
+<button class="btn btn btn-primary" ui-sref="root">Voltar</button>
+<button ng-if="currentState != GUIA_STATE" class="btn btn btn-primary" ui-sref="exemplo.listar()">Listar</button>
+<button ng-if="currentState != GUIA_STATE" class="btn btn btn-primary" ui-sref="exemplo.criar()">Criar</button>
+
 
 <div ng-switch on="currentState">
     <div ng-switch-when="exemplo.listar">
@@ -13,6 +15,9 @@
     </div>
     <div ng-switch-when="exemplo.editar">
         <div ng-include="'resource/exemplo?file=templates/exemplo/exemplo-form.html'"></div>
+    </div>
+    <div ng-switch-when="exemplo.guia">
+        <div ng-include="'resource/exemplo?file=templates/exemplo/guia.html'"></div>
     </div>
     <div ng-switch-default>
         <div ng-include="'resource/exemplo?file=templates/exemplo/exemplo-list.html'"></div>

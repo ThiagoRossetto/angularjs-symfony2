@@ -35,7 +35,22 @@ var myapp = angular.module("AngularIntegrationApp", ['ui.bootstrap', 'ngGrid', '
                 })
                 .state('exemplo.editar', {
                     url : "/editar/:id"
+                })
+                .state('exemplo.guia', {
+                    url : "/guia"
                 });
 
+       /* $stateProvider.state('guia', {
+            url : "/guia",
+            templateUrl : "bundles/angularintegrationexemplo/templates/guia/guia-view.html",
+            controller : ExemploController
+        })
+            .state('guia.instalar', {
+                url: "/detalhe/:id"
+            })
+            .state('guia.utilizar', {
+                url: "/listar"
+            });
+*/
 
     });
