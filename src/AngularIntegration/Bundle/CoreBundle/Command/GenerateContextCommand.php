@@ -27,8 +27,8 @@ class GenerateContextCommand extends GeneratorCommand
             ->setDescription('Generates a new bundle context')
             ->addOption('entity', null, InputOption::VALUE_REQUIRED, 'The entity class name to initialize (shortcut notation)')
             ->addOption('fields', null, InputOption::VALUE_REQUIRED, 'The fields to create with the new entity')
-            ->addOption('format', null, InputOption::VALUE_REQUIRED, 'Use the format for configuration files (php, xml, yml, or annotation)', 'annotation')
-            ->addOption('with-repository', null, InputOption::VALUE_NONE, 'Whether to generate the entity repository or not');
+            ->addOption('format', null, InputOption::VALUE_REQUIRED, 'Use the format for configuration files (php, xml, yml, or annotation)', 'annotation');
+            //->addOption('with-repository', null, InputOption::VALUE_NONE, 'Whether to generate the entity repository or not');
     }
 
     /**
@@ -39,8 +39,8 @@ class GenerateContextCommand extends GeneratorCommand
         $dialog = $this->getDialogHelper();
 
         if ($input->isInteractive()) {
-            if (!$dialog->askConfirmation($output, $dialog->getQuestion('Do you confirm generation', 'yes', '?'), true)) {
-                $output->writeln('<error>Command aborted</error>');
+            if (!$dialog->askConfirmation($output, $dialog->getQuestion('Você confirma a criação deste contexto', 'yes', '?'), true)) {
+                $output->writeln('<error>Comando abortado</error>');
 
                 return 1;
             }
@@ -51,37 +51,35 @@ class GenerateContextCommand extends GeneratorCommand
         $format = Validators::validateFormat($input->getOption('format'));
         $fields = $this->parseFields($input->getOption('fields'));
 
-        $dialog->writeSection($output, 'Entity generation');
+
 
         $bundle = $this->getContainer()->get('kernel')->getBundle($bundle);
 
         $generator = $this->getGenerator();
 
-        $generator->generate($bundle, $entity, $format, array_values($fields), $input->getOption('with-repository'));
+        $generator->generate($bundle, $entity, $format, array_values($fields), array());
 
-        $output->writeln('Generating the entity code: <info>OK</info>');
-
-        $dialog->writeGeneratorSummary($output, array());
+        $dialog->writeSection($output, 'Parabéns, contexto criado com sucesso!!! Fácil e rápido, não?! :)');
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)
     {
         $dialog = $this->getDialogHelper();
-        $dialog->writeSection($output, 'Welcome to the Context bundle generator');
+        $dialog->writeSection($output, 'Bem vindo ao gerador de módulo');
 
         // namespace
         $output->writeln(array(
             '',
-            'This command helps you generate bundle context.',
+            'Este comando ajuda você gerar um novo contexto.',
             '',
-            'You must use the shortcut notation like <comment>AcmeBlogBundle:Product</comment>.',
+            'Deve-se fazer da seguinte forma <comment>AngularIntegration(Nome_do_Bundle)Bundle:(Nome_do_Contexto)</comment>.',
             ''
         ));
 
         $bundleNames = array_keys($this->getContainer()->get('kernel')->getBundles());
 
         while (true) {
-            $context = $dialog->askAndValidate($output, $dialog->getQuestion('The Context shortcut name', $input->getOption('entity')), array('Sensio\Bundle\GeneratorBundle\Command\Validators', 'validateEntityName'), false, $input->getOption('entity'), $bundleNames);
+            $context = $dialog->askAndValidate($output, $dialog->getQuestion('Nome do contexto', $input->getOption('entity')), array('Sensio\Bundle\GeneratorBundle\Command\Validators', 'validateEntityName'), false, $input->getOption('entity'), $bundleNames);
 
             list($bundle, $context) = $this->parseShortcutNotation($context);
 
@@ -108,32 +106,20 @@ class GenerateContextCommand extends GeneratorCommand
         // format
         $output->writeln(array(
             '',
-            'Determine the format to use for the mapping information.',
+            'Determine o formato para utilizar o mapeamento das informações (recomendado: annotation).',
             '',
         ));
 
         $formats = array('yml', 'xml', 'php', 'annotation');
 
-        $format = $dialog->askAndValidate($output, $dialog->getQuestion('Configuration format (yml, xml, php, or annotation)', $input->getOption('format')), array('Sensio\Bundle\GeneratorBundle\Command\Validators', 'validateFormat'), false, $input->getOption('format'), $formats);
+        $format = $dialog->askAndValidate($output, $dialog->getQuestion('Formato para configuração (yml, xml, php, ou annotation)', $input->getOption('format')), array('Sensio\Bundle\GeneratorBundle\Command\Validators', 'validateFormat'), false, $input->getOption('format'), $formats);
         $input->setOption('format', $format);
 
         // fields
         $input->setOption('fields', $this->addFields($input, $output, $dialog));
 
-        // repository?
         $output->writeln('');
-        $withRepository = $dialog->askConfirmation($output, $dialog->getQuestion('Do you want to generate an empty repository class', $input->getOption('with-repository') ? 'yes' : 'no', '?'), $input->getOption('with-repository'));
-        $input->setOption('with-repository', $withRepository);
 
-        // summary
-        $output->writeln(array(
-            '',
-            $this->getHelper('formatter')->formatBlock('Summary before generation', 'bg=blue;fg=white', true),
-            '',
-            sprintf("You are going to generate a \"<info>%s:%s</info>\" Doctrine2 entity", $bundle, $context),
-            sprintf("using the \"<info>%s</info>\" format.", $format),
-            '',
-        ));
     }
 
     private function parseFields($input)
@@ -164,11 +150,10 @@ class GenerateContextCommand extends GeneratorCommand
         $fields = $this->parseFields($input->getOption('fields'));
         $output->writeln(array(
             '',
-            'Instead of starting with a blank entity, you can add some fields now.',
-            'Note that the primary key will be added automatically (named <comment>id</comment>).',
+            'A chave primária é adicionada automaticamente (<comment>id</comment>).',
             '',
         ));
-        $output->write('<info>Available types:</info> ');
+        $output->write('<info>Tipos permitidos:</info> ');
 
         $types = array_keys(Type::getTypesMap());
         $count = 20;
@@ -215,7 +200,7 @@ class GenerateContextCommand extends GeneratorCommand
         while (true) {
             $output->writeln('');
             $generator = $this->getGenerator();
-            $columnName = $dialog->askAndValidate($output, $dialog->getQuestion('New field name (press <return> to stop adding fields)', null), function ($name) use ($fields, $generator) {
+            $columnName = $dialog->askAndValidate($output, $dialog->getQuestion('Novo campo (Pressione "Enter" para parar de adicionar campos)', null), function ($name) use ($fields, $generator) {
                 if (isset($fields[$name]) || 'id' == $name) {
                     throw new \InvalidArgumentException(sprintf('Field "%s" is already defined.', $name));
                 }

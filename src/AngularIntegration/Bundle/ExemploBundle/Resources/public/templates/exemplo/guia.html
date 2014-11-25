@@ -1,0 +1,199 @@
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+	<head>
+		<meta charset="utf-8">
+		<title>Guia rápido</title> 
+	</head> 
+	<body> 
+		<h1> Guia rápido </h1>
+
+<hr>
+		<h3> Requisitos: </h3>
+
+			<ul>
+				<li> PHP 5.3 até 5.5; </li>
+				<li> Symfony 2.3.21 ou superior;</li>		
+				<li> Apache - recomendada a versão 2.4.6; </li>
+				<li> PostgreSQL. </li>
+			</ul>
+<hr>
+
+		<h3> Instalação: </h3>
+	
+			<h4>PHP 5 e Apache 2</h4>
+	
+			<p>A instalação de ambos pode ser realizada tanto no linux quanto no windows.</p>
+			<p>- <b>Windows</b>: É recomendado a instalação do Wamp ou Xamp.<br>
+			   - <b>Linux</b>: Pode-se executar o seguinte comando via terminal: <b>sudo apt-get install apache2 php5</b>.</p>
+
+			<span>Após a instalação, é necessário configurar o apache de modo que ele trabalhe com o .htaccess.</span>
+			<p>- <b>Linux</b>: Basta digitar o comando: <b>sudo a2enmod rewrite</b><br>
+			   - <b>Windows (WAMP)</b>: Dentro do arquivo httpd.conf, procure pela palavra <b>rewrite_module</b>; provavelmente irá encontrar <b>#LoadModule rewrite_module modules/mod_rewrite.so</b>; Apenas remova o <b>#</b>, e salve o arquivo.</p><b>
+			 <p>No arquivo php.ini descomente a diretiva <b>"extension=fileinfo.so"</b> </p>
+			<br>
+			 <p> 
+			 	Caso esteja utilizando Windows, deve-se configurar a variável de ambiente para utilizar o comando do PHP.<br>
+			 	Para realizar esse procedimento, caso esteja utilizando Wamp, basta utilizar este vídeo como referência de configuração: <a href="https://www.youtube.com/watch?v=jB5TvzzggWw">https://www.youtube.com/watch?v=jB5TvzzggWw</a> ( Créditos: <a href="https://www.youtube.com/channel/UCABY3Z834sFBDFLKuVk1Giw">Bruno Eduardo</a> ).
+			 </b>
+	
+			<p><b>Pronto!</b> Teóricamente está tudo pronto para começar a instalação do Symfony2.</p>
+<hr style="border:  1px dashed #333">	
+			<h4>Symfony2.4.4</h4>
+			<p>Depois de realizar a instação do apache e php, pode-se iniciar a instalação do Symfony2. </p>
+			<p>O próprio site do Symfony2 possui um local que ensina a instalar o Symfony2 a partir de diferentes S.O;<br>
+			<span>Porém, caso não queira instalar via composer, basta realizar o download do arquivo zip pelo link: </span>
+			<a href="http://symfony.com/download?v=Symfony_Standard_Vendors_2.4.4.zip">http://symfony.com/download?v=Symfony_Standard_Vendors_2.4.4.zip</a>
+			</p>
+
+			<p>
+				Após realizar o donwload do Symfony2, caso tenha baixado em zip, basta extraí-lo na pasta <b>www</b> do apache.<br>
+				Feito isso, tente acessar a seguinte URL: <a href="http://127.0.0.1/Symfony/web/app_dev.php">http://127.0.0.1/Symfony/web/app_dev.php</a>.<br>
+				<b style="color: red">Atenção: A porta de acesso pode variar; verifique qual é a porta de acesso que o apache está utilizando.</b><br>
+				Caso ocorra tudo bem, abrirá uma tela de bem vindo (Welcome) do Symfony2.
+				
+				<br>
+				<p>
+					<b>Agora é necessário realizar a configuração do Symfony2:</b><br>
+					<ol>
+						<li>Clique na opção <b>"CONFIGURE"</b>;</li>
+						<li>Preencha as configurações do banco de dados que está sendo utilizado; <b>Next step</b>.</li>
+						<li>Clique em <b>"GENERATE"</b> para gerar uma nova chave; <b>Next step</b>.</li>	
+					</ol>
+					<p>Caso ocorra tudo bem, aparecerá <b>"Well done! Your distribution is configured!"</b> na tela.
+				</p>
+			</p>
+			
+			<p>
+				<b style="color: red; background: yellow">Erros comuns que podem ocorrer na instalação: </b><br>	
+				<span><b>Erro de timezone:</b> Caso ocorra erro de timezone, é necessário entrar no arquivo php.ini, e setar o timezone desejável.</span><br>
+				<span><b>Lib do PDO não instalada:</b> Caso ocorra este erro, verifique se existe o PDO no arquivo php.ini; caso exista, verifique se ele está ativo, ou seja, sem o caractere <b>";"</b> no ínicio. 
+			</p>
+
+			<p>
+				Caso chegou até aqui, compreende-se que o Symfony2 já esteja devidamente configurado para a utilização.<br><br>
+				Após realizar a instalação e configuração do Symfony2, agora é necessário implantar a <b>solução proposta</b> dentro dele.<br>
+
+				Para isso, deve-se acessar o site no github: <a href="https://github.com/ThiagoRossetto/angularjs-symfony2">https://github.com/ThiagoRossetto/angularjs-symfony2</a>, e clicar no botão: <b>Download ZIP</b>; ou também realizando o clone: <b> git clone https://github.com/ThiagoRossetto/angularjs-symfony2</b>.<br>
+
+				Após realizar o download da <b>solução proposta</b>, é necessário substituir todos os arquivos presentes na <b>solução proposta</b> pelos arquivos dentro do Symfony2.<br>
+				<b style="color: red">Atenção: A substituição não realizará modificações internas no Core do Symfony2. Isso significa que poderá ser efetuado futuras atualizações no framework.</b><br><br>
+
+				Depois de substituir, precisa-se abrir o terminal, caminhar até a pasta da onde se encontra o Symfony2, e executar os seguintes comandos:
+				<ul>
+					<li> php app/console assets:install</li>
+					<li> php app/console doctrine:schema:update --force</li>
+				</ul>
+
+			</p>
+			<p>
+
+				Atenção(<b>Windows</b>): é necessário modificar alguns caminhos configurados no arquivo "src/AngularIntegration/Bundle/CoreBundle/Resources/config/services.yml", atribuindo para a propriedade "cacheFolder" o caminho "C:\fileduck", e o "debugFile" para "C:\fileduck\debug.log". Em seguida, será necessário a criação de uma pasta chamada "fileduck" dentro do "C:\".				
+			</p>
+
+			<p>
+				Feito isso, basta acessar a URL: <a href="http://127.0.0.1/Symfony/web">http://127.0.0.1/Symfony/web</a>.<br>
+				Caso tudo tenha sido realizado com sucesso, será adicionado um <b>"/#/"</b> ao final da URL, e aparecerá na tela: <b>Seja bem vindo ao AngularJS + Symfony2 Integration</b>.
+			</p>
+
+<hr>	
+
+		<h3> Utilização: </h3>
+
+		<p> 
+			<b>Acessando um exemplo:</b><br>
+			Após a instalação, basta acessar a URL: <a href="http://127.0.0.1/Symfony/web">http://127.0.0.1/Symfony/web</a>, e clicar no botão <b>"Exemplo"</b>.<br>
+			Depois de clicar no botão, será acrescentado o "exemplo/listar" na URL. E então, aparecerá uma tabela vazia, juntamente com dois botões: "Criar, listar".<br>
+
+				<ul>
+					<li> <b>Criar</b>: Uma tela simples com um campo para preencher. Caso preencha e clique em "Save", o dado será persistido.</li>
+					<li> <b>Listar</b>: Uma tela simples com uma tabela de todas as informações persistidas.</li>
+				</ul>
+		</p>
+<hr style="border:  1px dashed #333">	
+		<p>
+			Agora é hora de desfrutar a <b>solução proposta</b>!<br><br>
+			<b>Criar uma pequena aplicação:</b>
+
+				<ol>
+					<li> Criação um novo bundle (módulo) com integração AngularJS. </li>
+					<li> Criação um novo contexto. </li>
+					<li> Execução de comandos para atualizar o banco de dados e publicar arquivos de assets. </li>
+				</ol>
+		</p>
+		<p>
+
+			<b>1) Criação um novo bundle (módulo) com integração AngularJS: </b><br><br>
+			Para criar um novo bundle, basta abrir o terminal, caminhar até a pasta da onde se encontra o Symfony2, e executar o seguinte comando: <b>php app/console angularjs:generate:bundle</b>.<br><br>
+			- Caso deseja visualizar todos os comandos, execute o comando: <b>php app/console</b>.<br><br>
+
+			Após isso, haverá uma mensagem de boas vindas, juntamente campo para entrar com dados. Neste campo, é necessário digitar "<b>AngularIntegration/Bundle</b>/Teste<b>Bundle</b>". <br>Repare que as palavras que estão em negrito são obrigatórias nesta versão.<br><br>
+
+			<b style="background-color: black"><span style="color: green">Namespace do bundle</span><span style="color: white">: AngularIntegration/Bundle/TesteBundle</span></b> <b style="color: blue">(Enter)</b><br><br>
+
+			A entrada acima significa : <b>{Nome do projeto}</b> / <b>Bundle</b> / <b>{Nome do bundle}</b>.<br><br>
+
+			Após isso, deverá entrar com o tipo de dado para as configurações que deseja trabalhar neste bundle. O recomendado é o YML, por ser mais fácil a visualização das configurações.<br><br>
+
+			 
+			 <b style="background-color: black"><span style="color: green">Formato de configuração (yml, xml, php, ou annotation)</span><span style="color: white">: yml</span></b> <b style="color: blue">(Enter)</b><br><br>
+
+			 Caso tudo ocorrer bem, aparecerá uma mensagem de sucesso ao criar o bundle.
+
+
+		</p>
+
+		<p>
+
+			<b>2) Criação um novo contexto: </b><br><br>
+			Para criar um novo contexto, basta abrir o terminal, caminhar até a pasta da onde se encontra o Symfony2, e executar o seguinte comando: <b>php app/console angularjs:generate:context</b>.<br><br>
+
+			Após isso, haverá um campo para entrar com dados. Neste campo, é necessário digitar "<b>AngularIntegrationTesteBundle</b>:<b>TesteContext</b>". <br><br>
+
+			<b style="background-color: black"><span style="color: green">The Context shortcut name</span><span style="color: white">: AngularIntegrationTesteBundle:TesteContext</span></b> <b style="color: blue">(Enter)</b><br><br>
+
+			A entrada acima significa : <b>{Nome do projeto}{Nome do Bundle}</b> : <b>{Nome do contexto}</b>.<br><br>
+
+
+			Após isso, deverá escolher qual é o tipo de dado que se irá trabalhar no contexto. No caso do contexto, o aconselhado é o annotation, pois será trabalhado com dados de entidades.<br><br>
+
+			<b style="background-color: black"><span style="color: green">Configuration format (yml, xml, php, or annotation) [annotation]</span><span style="color: white">: annotation</span></b> <b style="color: blue">(Enter)</b><br><br>
+
+			Após isso, deverá entrar com os campos que a entidade deste contexto possuirá. Caso terminar, basta deixar o campo vazio e pressionar enter.<br><br>
+			<b style="color: black"> Observação: Lembrando que um contexto sempre possuirá uma ou mais entidades, nunca nenhuma! </b></b>
+
+			Após a realização do procedimento acima, caso ocorra tudo certo, o contexto já estará disponível.
+			 
+		</p>
+
+		<p>
+
+			<b>3) Execução de comandos para atualizar o banco de dados e publicar arquivos de assets: </b><br><br>
+				
+				Após realizar os passos anteriores, será necessário atualizar o banco de dados e publicar os arquivos de assets.<br><br>
+
+				Para isso, basta acessar a pasta do Symfony2 e digitar os seguintes comando no terminal: 
+
+				<ul>
+					<li> php app/console assets:install</li>
+					<li> php app/console doctrine:schema:update --force</li>
+				</ul>
+
+			<p>
+				<b style="color: red; background: yellow">Erros comuns que podem ocorrer na execução dos comandos: </b><br>	
+				<span><b>Erro de permissão:</b> Caso ocorra erro de permissão, será necessário dar acesso de escrita nas pastas "app/cache" e "app/logs" para o usuário que está executando o comando.</span><br><br>
+			</p>
+
+			<p>
+				Feito isso, basta acessar a URL: <a href="http://127.0.0.1/Symfony/web/teste/#/testecontext">http://127.0.0.1/Symfony/web/teste/#/testecontext</a>.<br><br>
+
+				Caso ocorra tudo certo, aparecerá uma tela semelhante à aquela do exemplo.
+
+			</p>
+			 
+		</p>
+		
+	</body>
+</hmtl>
+
+
+

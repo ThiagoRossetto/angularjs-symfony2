@@ -34,29 +34,6 @@ function AbstractController( $scope, $log, $filter) {
 
         $scope.initialize(toState, toParams, fromState, fromParams);
 
-        if (toState.url != '/detalhe/:id' && toState.url != "/listar") {
-            $scope.msg = null;
-        }else if( $scope.msg != null && toState.url == "/listar" && $scope.msg.type == 'danger'){
-            $scope.msg = null;
-        };
-
-        if ((toState.url == '/detalheData/:id' || toState.url == "/detalhePop/:id") && fromState.name != "") {
-            $scope.oldState = fromState;
-            $scope.oldParams = fromParams;
-        }else{
-            $scope.oldState = '/atividade/detalhe/'+fromParams.id;
-            $scope.oldParams = fromParams;
-        }
-    });
-
-    /**
-     * Função para fechar o alert depois de 10 segundos.
-     */
-    $scope.$watch('msg', function(){
-        if($scope.msg != null)
-            setTimeout(function(){
-                $('.alert .close').trigger('click');
-            }, 10000);
     });
 
     /**

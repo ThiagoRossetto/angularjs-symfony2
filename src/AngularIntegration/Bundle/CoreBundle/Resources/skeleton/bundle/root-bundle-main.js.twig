@@ -7,14 +7,15 @@ var myapp = angular.module("AngularIntegrationApp", ['ui.bootstrap', 'ngGrid', '
 
         $urlRouterProvider.otherwise("/");
 
-        //Feel free to change this state
-        /*$stateProvider.state( 'root', {
+        //Sinta-se livre para remover este state
+        $stateProvider.state( 'root', {
             url         : '/',
-            templateUrl : 'bundles/angularintegrationcore/templates/root.html'
-        });*/
+            template : 'Este é o bundle: {{ bundle }}'
+        });
 
         /*
          * Important: Don't remove the @beginStates annotation
+         * Importante: Não remova a annotation @beginStates
          * */
 
         //@beginStates
