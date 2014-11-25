@@ -84,7 +84,7 @@ class InstallAngularCommand extends GeneratorCommand
         $generator = $this->getGenerator();
         $generator->generate($namespace, $bundle, $dir, $format, $structure);
 
-        $output->writeln('Generating the bundle code: <info>OK</info>');
+        //$output->writeln('Generating the bundle code: <info>OK</info>');
 
         $errors = array();
         $runner = $dialog->getRunner($output, $errors);
@@ -115,7 +115,6 @@ class InstallAngularCommand extends GeneratorCommand
 
     protected function interact(InputInterface $input, OutputInterface $output)
     {
-        echo "interact";
         $dialog = $this->getDialogHelper();
         $dialog->writeSection($output, 'Bem vindo ao gerador de módulo com integração AngularJS');
 
@@ -143,6 +142,8 @@ class InstallAngularCommand extends GeneratorCommand
             ));
 
             $namespace = $dialog->askAndValidate($output, $dialog->getQuestion('Namespace do bundle', $input->getOption('namespace')), array('Sensio\Bundle\GeneratorBundle\Command\Validators', 'validateBundleNamespace'), false, $input->getOption('namespace'));
+            //$namespace = 'AngularIntegration\\Bundle\\'.$dialog->ask($output, $dialog->getQuestion('Namespace do bundle', $input->getOption('namespace'))) . 'Bundle';
+
             $input->setOption('namespace', $namespace);
         }
 
@@ -183,7 +184,7 @@ class InstallAngularCommand extends GeneratorCommand
         if (null === $format) {
             $output->writeln(array(
                 '',
-                'Determine o formato a ser usado para a configuração gerada',
+                'Determine o formato a ser usado para a configuração gerada (Recomendado: yml)',
                 '',
             ));
             $format = $dialog->askAndValidate($output, $dialog->getQuestion('Formato de configuração (yml, xml, php, ou annotation)', $input->getOption('format')), array('Sensio\Bundle\GeneratorBundle\Command\Validators', 'validateFormat'), false, $input->getOption('format'));
@@ -197,7 +198,7 @@ class InstallAngularCommand extends GeneratorCommand
 
     protected function checkAutoloader(OutputInterface $output, $namespace, $bundle, $dir)
     {
-        $output->write('Checking that the bundle is autoloaded: ');
+        $output->write('Verificando se o bundle foi carregado: ');
         if (!class_exists($namespace.'\\'.$bundle)) {
             return array(
                 '- Edit the <comment>composer.json</comment> file and register the bundle',
@@ -214,7 +215,7 @@ class InstallAngularCommand extends GeneratorCommand
             $auto = $dialog->askConfirmation($output, $dialog->getQuestion('Confirm automatic update of your Kernel', 'yes', '?'), true);
         }*/
 
-        $output->write('Enabling the bundle inside the Kernel: ');
+        $output->write('Habilitando o bundle dentro do Kernel: ');
         $manip = new KernelManipulator($kernel);
         try {
             $ret = $auto ? $manip->addBundle($namespace.'\\'.$bundle) : false;
